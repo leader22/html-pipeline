@@ -13,18 +13,20 @@ module.exports = HTMLPipeline;
 
 /**
  * Initialize `HTMLPipeline`
+ * If you run in node, pass document by your own
  *
+ * @param {DocumentElement} $document
  * @return {HTMLPipeline}
  * @api public
  */
 
-function HTMLPipeline() {
-  if (!(this instanceof HTMLPipeline)) return new HTMLPipeline();
+function HTMLPipeline($document) {
+  this.$document = $document || document;
   this.pipes = [];
   // Set it later(at #run)
   this.it = null;
 
-  return this;
+  if (!(this instanceof HTMLPipeline)) return new HTMLPipeline();
 }
 
 /**
@@ -55,6 +57,7 @@ HTMLPipeline.prototype.run = function(el) {
   var len = pipes.length;
   var next = this.it.node;
   var it = this.it;
+  var $document = this.$document;
   var parent;
   var child;
   var skip;
@@ -86,7 +89,7 @@ HTMLPipeline.prototype.run = function(el) {
         // and start on the first child
         // that was unwrapped
         it.reset(next.previousSibling || next.parentNode);
-        ret = unwrap(next);
+        ret = unwrap(next, $document);
         parent.replaceChild(ret, next);
         break;
       } else if (next == ret) {
@@ -134,11 +137,12 @@ HTMLPipeline.prototype.run = function(el) {
  * Unwrap an element
  *
  * @param {Element} el
+ * @param {DocumentElement} $document
  * @return {DocumentFragment} frag
  */
 
-function unwrap(el) {
-  var frag = document.createDocumentFragment();
+function unwrap(el, $document) {
+  var frag = $document.createDocumentFragment();
   while (el.childNodes.length) {
     frag.appendChild(el.firstChild);
   }
