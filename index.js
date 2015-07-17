@@ -26,7 +26,7 @@ function HTMLPipeline($document) {
   // Set it later(at #run)
   this.it = null;
 
-  if (!(this instanceof HTMLPipeline)) return new HTMLPipeline();
+  if (!(this instanceof HTMLPipeline)) return new HTMLPipeline($document);
 }
 
 /**
