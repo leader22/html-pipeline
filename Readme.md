@@ -12,12 +12,6 @@
 
 ## Installation
 
-  Install with [component(1)](http://component.io):
-
-    $ component install automattic/html-pipe
-
-  or
-
     $ npm i html-pipeline
 
 
