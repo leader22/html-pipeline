@@ -1,4 +1,4 @@
-# html-pipe
+# html-pipeline
 
   Pluggable HTML Pipeline
 
@@ -7,6 +7,11 @@
   Install with [component(1)](http://component.io):
 
     $ component install automattic/html-pipe
+
+  or
+
+    $ npm i html-pipeline
+
 
 ## Example
 
@@ -17,7 +22,7 @@
 ```js
 var p = document.getElementsByTagName('p')[0];
 
-var out = htmlpipe(p)
+var out = htmlpipeline(p)
   .pipe(sanitize)
   .pipe(highlight)
   .run()
@@ -44,11 +49,11 @@ console.log(out.innerHTML);
 
 ## API
 
-### HTMLPipe(el)
+### htmlpipelineline(el)
 
   Initialize the pipeline with `el`.
 
-### htmlpipe#pipe(fn)
+### htmlpipeline#pipe(fn)
 
   Add a transform to the pipeline. The pipeline changes it's action
   based on the return value of `fn`. Here's a list of possible values:
@@ -62,7 +67,7 @@ console.log(out.innerHTML);
 
   Check out the tests to see each of these transforms in action.
 
-### htmlpipe#run()
+### htmlpipeline#run()
 
   Run the pipeline, returning the transformed `el`.
 

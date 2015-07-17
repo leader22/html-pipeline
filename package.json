@@ -1,19 +1,27 @@
 {
-  "name": "html-pipe",
+  "name": "html-pipeline",
+  "version": "1.0.0",
   "description": "pluggable html transformer",
-  "version": "0.0.6",
-  "author": "Automattic, Inc.",
-  "contributors": [
-    "Nathan Rajlich <nathan@automattic.com>"
-  ],
-  "keywords": [],
-  "dependencies": {
-    "dom-iterator": "0.3.0"
-  },
-  "license": "MIT",
   "main": "index.js",
-  "repository": "git://github.com/Automattic/html-pipe.git",
-  "devDependencies": {
-    "component-test": "~0.1.3"
-  }
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "component-test": "^0.1.4",
+    "dom-iterator": "^0.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leader22/html-pipeline.git"
+  },
+  "author": "leader22",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/leader22/html-pipeline/issues"
+  },
+  "homepage": "https://github.com/leader22/html-pipeline#readme"
 }

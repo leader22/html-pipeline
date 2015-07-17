@@ -6,21 +6,21 @@
 var iterator = require('dom-iterator');
 
 /**
- * Export `HTMLPipe`
+ * Export `HTMLPipeline`
  */
 
-module.exports = HTMLPipe;
+module.exports = HTMLPipeline;
 
 /**
- * Initialize `HTMLPipe`
+ * Initialize `HTMLPipeline`
  *
  * @param {Element} el
- * @return {HTMLPipe}
+ * @return {HTMLPipeline}
  * @api public
  */
 
-function HTMLPipe(el) {
-  if (!(this instanceof HTMLPipe)) return new HTMLPipe(el);
+function HTMLPipeline(el) {
+  if (!(this instanceof HTMLPipeline)) return new HTMLPipeline(el);
   this.it = iterator(el.firstChild, el).revisit(false);
   this.pipes = [];
   this.el = el;
@@ -30,11 +30,11 @@ function HTMLPipe(el) {
  * Add a transform to the pipe
  *
  * @param {Function} fn
- * @return {HTMLPipe} self
+ * @return {HTMLPipeline} self
  * @api public
  */
 
-HTMLPipe.prototype.pipe = function(fn) {
+HTMLPipeline.prototype.pipe = function(fn) {
   this.pipes.push(fn);
   return this;
 };
@@ -42,11 +42,11 @@ HTMLPipe.prototype.pipe = function(fn) {
 /**
  * Run the pipeline
  *
- * @return {HTMLPipe}
+ * @return {HTMLPipeline}
  * @api public
  */
 
-HTMLPipe.prototype.run = function() {
+HTMLPipeline.prototype.run = function() {
   var pipes = this.pipes;
   var len = pipes.length;
   var next = this.it.node;
