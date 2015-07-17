@@ -57,7 +57,7 @@ console.log(out.innerHTML);
 
 ## API
 
-### htmlpipelineline(document)
+### htmlpipeline(document)
 
   Initialize the pipeline.
   If you run in node js env(global.document is not defined env), pass document by yourself.
