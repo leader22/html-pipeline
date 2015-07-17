@@ -2,6 +2,12 @@
 
   Pluggable HTML Pipeline
 
+  Forked from [html-pipe](https://github.com/Automattic/html-pipe) and add some modify.
+
+  - add Nodejs support
+  - mod api arguments
+
+
 ## Installation
 
   Install with [component(1)](http://component.io):
