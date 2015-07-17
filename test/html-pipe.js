@@ -24,10 +24,10 @@ describe('html-pipe', function() {
     var dom = domify('hi <strong>there</strong> automattic!');
     var values = ['hi ', 'STRONG', 'there', ' automattic!'];
 
-    dom = htmlpipe(dom)
+    dom = htmlpipe()
       .pipe(ignore)
       .pipe(test)
-      .run()
+      .run(dom)
 
     function ignore(el) {
       return;
@@ -45,10 +45,10 @@ describe('html-pipe', function() {
     var transformCalls = 7;
     var testCalls = 6;
 
-    dom = htmlpipe(dom)
+    dom = htmlpipe()
       .pipe(transform)
       .pipe(test)
-      .run()
+      .run(dom)
 
     assert(!transformCalls);
     assert(!testCalls);
@@ -71,10 +71,10 @@ describe('html-pipe', function() {
     var transformCalls = 3;
     var testCalls = 2;
 
-    dom = htmlpipe(dom)
+    dom = htmlpipe()
       .pipe(transform)
       .pipe(test)
-      .run()
+      .run(dom)
 
     assert(!transformCalls);
     assert(!testCalls);
@@ -97,10 +97,10 @@ describe('html-pipe', function() {
     var transformCalls = 3;
     var testCalls = 2;
 
-    dom = htmlpipe(dom)
+    dom = htmlpipe()
       .pipe(transform)
       .pipe(test)
-      .run()
+      .run(dom)
 
     assert(!transformCalls);
     assert(!testCalls);
@@ -123,10 +123,10 @@ describe('html-pipe', function() {
     var transformCalls = 3;
     var testCalls = 2;
 
-    dom = htmlpipe(dom)
+    dom = htmlpipe()
       .pipe(transform)
       .pipe(test)
-      .run()
+      .run(dom)
 
     assert(!transformCalls);
     assert(!testCalls);
@@ -149,10 +149,10 @@ describe('html-pipe', function() {
     var transformCalls = 7;
     var testCalls = 7;
 
-    dom = htmlpipe(dom)
+    dom = htmlpipe()
       .pipe(transform)
       .pipe(test)
-      .run()
+      .run(dom)
 
     assert(!transformCalls);
     assert(!testCalls);
@@ -179,10 +179,10 @@ describe('html-pipe', function() {
     var transformCalls = 3;
     var testCalls = 3;
 
-    dom = htmlpipe(dom)
+    dom = htmlpipe()
       .pipe(transform)
       .pipe(test)
-      .run()
+      .run(dom)
 
     assert(!transformCalls);
     assert(!testCalls);
@@ -208,10 +208,10 @@ describe('html-pipe', function() {
     var transformCalls = 3;
     var testCalls = 3;
 
-    dom = htmlpipe(dom)
+    dom = htmlpipe()
       .pipe(transform)
       .pipe(test)
-      .run()
+      .run(dom)
 
     assert(!transformCalls);
     assert(!testCalls);
@@ -234,10 +234,10 @@ describe('html-pipe', function() {
     var transformCalls = 8;
     var testCalls = 8;
 
-    dom = htmlpipe(dom)
+    dom = htmlpipe()
       .pipe(transform)
       .pipe(test)
-      .run()
+      .run(dom)
 
     assert(!transformCalls);
     assert(!testCalls);
@@ -264,10 +264,10 @@ describe('html-pipe', function() {
     var transformCalls = 6;
     var testCalls = 6;
 
-    dom = htmlpipe(dom)
+    dom = htmlpipe()
       .pipe(transform)
       .pipe(test)
-      .run()
+      .run(dom)
 
     assert(!transformCalls, 'number of transform calls is wrong');
     assert(!testCalls, 'number of test calls is wrong');
@@ -293,10 +293,10 @@ describe('html-pipe', function() {
     var transformCalls = 8;
     var testCalls = 7;
 
-    dom = htmlpipe(dom)
+    dom = htmlpipe()
       .pipe(transform)
       .pipe(test)
-      .run()
+      .run(dom)
 
     assert(!transformCalls, 'number of transform calls is wrong');
     assert(!testCalls, 'number of test calls is wrong');
@@ -319,10 +319,10 @@ describe('html-pipe', function() {
     var transformCalls = 5;
     var testCalls = 5;
 
-    dom = htmlpipe(dom)
+    dom = htmlpipe()
       .pipe(test)
       .pipe(transform)
-      .run()
+      .run(dom)
 
     assert(!transformCalls, 'number of transform calls is wrong');
     assert(!testCalls, 'number of test calls is wrong');

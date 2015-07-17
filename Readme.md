@@ -28,10 +28,10 @@
 ```js
 var p = document.getElementsByTagName('p')[0];
 
-var out = htmlpipeline(p)
+var out = htmlpipeline()
   .pipe(sanitize)
   .pipe(highlight)
-  .run()
+  .run(p)
 
 // unwrap spans with inline styles
 function sanitize(el) {
@@ -55,9 +55,9 @@ console.log(out.innerHTML);
 
 ## API
 
-### htmlpipelineline(el)
+### htmlpipelineline()
 
-  Initialize the pipeline with `el`.
+  Initialize the pipeline.
 
 ### htmlpipeline#pipe(fn)
 
@@ -73,9 +73,9 @@ console.log(out.innerHTML);
 
   Check out the tests to see each of these transforms in action.
 
-### htmlpipeline#run()
+### htmlpipeline#run(el)
 
-  Run the pipeline, returning the transformed `el`.
+  Run the pipeline with `el`, returning the transformed `el`.
 
 ## Testing
 
