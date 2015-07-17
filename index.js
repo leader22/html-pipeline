@@ -14,16 +14,17 @@ module.exports = HTMLPipeline;
 /**
  * Initialize `HTMLPipeline`
  *
- * @param {Element} el
  * @return {HTMLPipeline}
  * @api public
  */
 
-function HTMLPipeline(el) {
-  if (!(this instanceof HTMLPipeline)) return new HTMLPipeline(el);
-  this.it = iterator(el.firstChild, el).revisit(false);
+function HTMLPipeline() {
+  if (!(this instanceof HTMLPipeline)) return new HTMLPipeline();
   this.pipes = [];
-  this.el = el;
+  // Set it later(at #run)
+  this.it = null;
+
+  return this;
 }
 
 /**
@@ -42,11 +43,14 @@ HTMLPipeline.prototype.pipe = function(fn) {
 /**
  * Run the pipeline
  *
+ * @param {Element} el
  * @return {HTMLPipeline}
  * @api public
  */
 
-HTMLPipeline.prototype.run = function() {
+HTMLPipeline.prototype.run = function(el) {
+  this.it = iterator(el.firstChild, el).revisit(false);
+
   var pipes = this.pipes;
   var len = pipes.length;
   var next = this.it.node;
@@ -121,9 +125,9 @@ HTMLPipeline.prototype.run = function() {
   }
 
   // cleanup the split textnodes
-  if (this.el.normalize) this.el.normalize();
+  if (el.normalize) el.normalize();
 
-  return this.el;
+  return el;
 };
 
 /**
